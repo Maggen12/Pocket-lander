@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcaeo4tshfwwm"]
+[gd_scene load_steps=3 format=3 uid="uid://bcaeo4tshfwwm"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_pdkre"]
+[ext_resource type="Texture2D" uid="uid://dw62xn8gxtybq" path="res://rocket-ship-png-7.png" id="1_5j5qf"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_pdkre")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wad6e"]
+size = Vector2(177, 302)
+
+[node name="Rocket Ship" type="RigidBody2D"]
+position = Vector2(562, 216)
+gravity_scale = -1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -11)
+scale = Vector2(0.528125, 0.528125)
+texture = ExtResource("1_5j5qf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -11)
+shape = SubResource("RectangleShape2D_wad6e")
