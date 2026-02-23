@@ -22,9 +22,9 @@ shape = SubResource("RectangleShape2D_tlif8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Fuel" type="Label" parent="."]
-offset_left = -554.0
-offset_top = -315.0
-offset_right = -280.0
-offset_bottom = -248.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fuel" type="Label" parent="CanvasLayer"]
+offset_right = 83.0
+offset_bottom = 24.0
 script = ExtResource("3_mk8vm")

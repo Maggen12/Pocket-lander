@@ -1,23 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://buh3qski3cp8m"]
+[gd_scene load_steps=2 format=3 uid="uid://buh3qski3cp8m"]
 
 [ext_resource type="PackedScene" uid="uid://bntrhhn6n68fu" path="res://rocketship.tscn" id="1_5r2ls"]
-[ext_resource type="Texture2D" uid="uid://ctphkeyli0sla" path="res://moon-surface-seamless-texture-background-closeup-moon-surface-texture-188679621.webp" id="2_pkqox"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu2vn"]
-size = Vector2(805.985, 500)
 
 [node name="Main" type="Node"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_5r2ls")]
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D2" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-2, 2)
-
-[node name="Moon-surface-seamless-texture-background-closeup-moon-surface-texture-188679621" type="Sprite2D" parent="."]
-position = Vector2(-715, 1540)
-scale = Vector2(22.6238, 0.278)
-texture = ExtResource("2_pkqox")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon-surface-seamless-texture-background-closeup-moon-surface-texture-188679621"]
-position = Vector2(3.22585, 1.79858)
-shape = SubResource("RectangleShape2D_fu2vn")
