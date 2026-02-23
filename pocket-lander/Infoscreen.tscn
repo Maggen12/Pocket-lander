@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8hllbae21vwp"]
+
+[ext_resource type="Script" path="res://infoscreen.gd" id="1_d17f7"]
+[ext_resource type="Texture2D" uid="uid://b3yxdx780axic" path="res://wallpapermainmenu.webp" id="2_g08gv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d17f7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 328)
+texture = ExtResource("2_g08gv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 768.0
+offset_bottom = 448.0
+text = "Welcome to Pocket Lander
+
+Your goal is to land the spacecraft
+without crashing it.
+
+Controls:
+W to increase thrust
+S to decrease thrust
+A to tilt the spacecraft counter-clockwise
+D to tilt the spacecraft clockwise
+
+To safely land the spacecraft, you need a total 
+velocity less than 15 m/s"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 512.0
+offset_right = 672.0
+offset_bottom = 576.0
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
