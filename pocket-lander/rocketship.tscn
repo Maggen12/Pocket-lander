@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bntrhhn6n68fu"]
+[gd_scene load_steps=5 format=3 uid="uid://bntrhhn6n68fu"]
 
 [ext_resource type="Texture2D" uid="uid://dw62xn8gxtybq" path="res://rocket-ship-png-7.png" id="1_1ewwx"]
 [ext_resource type="Script" path="res://rocketship.gd" id="1_h534v"]
+[ext_resource type="Script" path="res://fuel.gd" id="3_mk8vm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlif8"]
 size = Vector2(102, 177)
@@ -19,5 +20,11 @@ texture = ExtResource("1_1ewwx")
 position = Vector2(-1, 14.5906)
 shape = SubResource("RectangleShape2D_tlif8")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-2, 1.09062)
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Fuel" type="Label" parent="."]
+offset_left = -554.0
+offset_top = -315.0
+offset_right = -280.0
+offset_bottom = -248.0
+script = ExtResource("3_mk8vm")

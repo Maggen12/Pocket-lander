@@ -19,3 +19,7 @@ func _on_quit_pressed():
 func _on_info_pressed():
 	get_tree().change_scene_to_file("res://Infoscreen.tscn")
 	
+
+
+func _on_play_button_down() -> void:
+	get_tree().change_scene_to_file("res://Gameplay.tscn")
