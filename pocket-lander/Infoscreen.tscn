@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://s8kr6km787j5"]
+[gd_scene load_steps=3 format=3 uid="uid://c8hllbae21vwp"]
 
 [ext_resource type="Script" path="res://infoscreen.gd" id="1_d17f7"]
 [ext_resource type="Texture2D" uid="uid://b3yxdx780axic" path="res://wallpapermainmenu.webp" id="2_g08gv"]
@@ -13,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_d17f7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 344)
+position = Vector2(576, 336)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_g08gv")
 

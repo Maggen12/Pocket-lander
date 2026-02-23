@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs5fi07d87sf4"]
+[gd_scene load_steps=5 format=3 uid="uid://cs6nddl0i0ryh"]
 
 [ext_resource type="Texture2D" uid="uid://b3yxdx780axic" path="res://wallpapermainmenu.webp" id="1_f0vur"]
 [ext_resource type="Script" path="res://main_screen.gd" id="1_v1ohk"]
+[ext_resource type="Texture2D" uid="uid://dstt7ulvny8t7" path="res://desktoplander.png" id="3_7sn0k"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bppqc"]
 
@@ -13,7 +14,8 @@ offset_bottom = 40.0
 script = ExtResource("1_v1ohk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 328)
+position = Vector2(576, 336)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_f0vur")
 
 [node name="Play" type="Button" parent="."]
@@ -42,6 +44,10 @@ offset_right = 672.0
 offset_bottom = 416.0
 text = "Quit"
 icon = SubResource("ViewportTexture_bppqc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(576, 88)
+texture = ExtResource("3_7sn0k")
 
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
 [connection signal="pressed" from="Info" to="." method="_on_info_pressed"]
