@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8hllbae21vwp"]
+[gd_scene load_steps=3 format=3 uid="uid://s8kr6km787j5"]
 
 [ext_resource type="Script" path="res://infoscreen.gd" id="1_d17f7"]
 [ext_resource type="Texture2D" uid="uid://b3yxdx780axic" path="res://wallpapermainmenu.webp" id="2_g08gv"]

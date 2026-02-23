@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const GRAVITY = 2.0
 var thrust = 0
-var fuel = 100
+
 
 
 func _physics_process(delta: float) -> void:
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	
 	if Input.is_action_just_pressed("more_thrust") and thrust < 10:
-		if fuel > 0:
+		if GlobalVariables.fuel > 0:
 			thrust += 2
 	elif Input.is_action_just_pressed("less_thrust") and thrust >=2:
 		thrust -= 2
@@ -26,15 +26,15 @@ func _process(delta):
 	
 	#fuel system
 	if thrust == 2:
-		fuel -= 4 * delta
+		GlobalVariables.fuel -= 4 * delta
 	elif thrust == 4:
-		fuel -= 6 * delta
+		GlobalVariables.fuel -= 6 * delta
 	elif thrust == 6:
-		fuel -= 8 * delta
+		GlobalVariables.fuel -= 8 * delta
 	elif thrust == 8:
-		fuel -= 10 * delta
+		GlobalVariables.fuel -= 10 * delta
 	elif thrust == 10:
-		fuel -= 12 * delta
-	if fuel <= 0:
+		GlobalVariables.fuel -= 12 * delta
+	if GlobalVariables.fuel <= 0:
 		thrust = 0
-		fuel = 0
+		GlobalVariables.fuel = 0

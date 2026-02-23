@@ -1,22 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmj7s6wjb5gca"]
+[gd_scene load_steps=4 format=3 uid="uid://buh3qski3cp8m"]
 
-[ext_resource type="Texture2D" uid="uid://bu6qd4j6dc2c3" path="res://spacebackdrop.png" id="1_tps0b"]
-[ext_resource type="Texture2D" uid="uid://d8jf8gq6ti80" path="res://earthtrum.png" id="2_ofk8k"]
-[ext_resource type="PackedScene" uid="uid://bntrhhn6n68fu" path="res://rocketship.tscn" id="3_dctec"]
+[ext_resource type="PackedScene" uid="uid://bntrhhn6n68fu" path="res://rocketship.tscn" id="1_5r2ls"]
+[ext_resource type="Texture2D" uid="uid://ctphkeyli0sla" path="res://moon-surface-seamless-texture-background-closeup-moon-surface-texture-188679621.webp" id="2_pkqox"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu2vn"]
+size = Vector2(805.985, 500)
 
-[node name="Earthtrum" type="Sprite2D" parent="."]
-top_level = true
-position = Vector2(264, 136)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_ofk8k")
+[node name="Main" type="Node"]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_5r2ls")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(576, 324)
-scale = Vector2(1.21667, 1.22963)
-texture = ExtResource("1_tps0b")
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-2, 2)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_dctec")]
+[node name="Moon-surface-seamless-texture-background-closeup-moon-surface-texture-188679621" type="Sprite2D" parent="."]
+position = Vector2(-715, 1540)
+scale = Vector2(22.6238, 0.278)
+texture = ExtResource("2_pkqox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon-surface-seamless-texture-background-closeup-moon-surface-texture-188679621"]
+position = Vector2(3.22585, 1.79858)
+shape = SubResource("RectangleShape2D_fu2vn")
