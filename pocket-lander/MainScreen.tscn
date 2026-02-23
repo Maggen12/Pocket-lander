@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs6nddl0i0ryh"]
+[gd_scene load_steps=5 format=3 uid="uid://cs6nddl0i0ryh"]
 
 [ext_resource type="Texture2D" uid="uid://b3yxdx780axic" path="res://wallpapermainmenu.webp" id="1_f0vur"]
 [ext_resource type="Script" path="res://main_screen.gd" id="1_v1ohk"]
+[ext_resource type="Texture2D" uid="uid://dstt7ulvny8t7" path="res://desktoplander.png" id="3_tf0gr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bppqc"]
 
@@ -13,35 +14,42 @@ offset_bottom = 40.0
 script = ExtResource("1_v1ohk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 328)
+position = Vector2(576, 344)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_f0vur")
 
 [node name="Play" type="Button" parent="."]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_left = 480.0
-offset_top = 192.0
+offset_top = 208.0
 offset_right = 672.0
-offset_bottom = 256.0
+offset_bottom = 272.0
 text = "Play"
 
 [node name="Info" type="Button" parent="."]
 layout_mode = 0
 offset_left = 480.0
-offset_top = 272.0
+offset_top = 296.0
 offset_right = 672.0
-offset_bottom = 336.0
+offset_bottom = 360.0
 text = "Info"
 
 [node name="Quit" type="Button" parent="."]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = 480.0
-offset_top = 352.0
+offset_top = 384.0
 offset_right = 672.0
-offset_bottom = 416.0
+offset_bottom = 448.0
 text = "Quit"
 icon = SubResource("ViewportTexture_bppqc")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(576, 128)
+scale = Vector2(1.08101, 1.30808)
+texture = ExtResource("3_tf0gr")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Info" to="." method="_on_info_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

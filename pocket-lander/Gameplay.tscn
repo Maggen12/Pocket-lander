@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://bmj7s6wjb5gca"]
+[gd_scene load_steps=4 format=3 uid="uid://bmj7s6wjb5gca"]
+
+[ext_resource type="Texture2D" uid="uid://bu6qd4j6dc2c3" path="res://spacebackdrop.png" id="1_tps0b"]
+[ext_resource type="Texture2D" uid="uid://d8jf8gq6ti80" path="res://earthtrum.png" id="2_ofk8k"]
+[ext_resource type="PackedScene" uid="uid://bntrhhn6n68fu" path="res://rocketship.tscn" id="3_dctec"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Earthtrum" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(264, 136)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ofk8k")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(576, 324)
+scale = Vector2(1.21667, 1.22963)
+texture = ExtResource("1_tps0b")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_dctec")]
