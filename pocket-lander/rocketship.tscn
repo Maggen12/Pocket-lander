@@ -91,12 +91,30 @@ offset_bottom = 448.0
 text = "Return to menu"
 metadata/_edit_use_anchors_ = true
 
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+offset_left = 2.0
+offset_top = 121.0
+offset_right = 208.0
+offset_bottom = 137.0
+max_value = 20.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HSlider"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -20.0
+offset_right = 66.0
+offset_bottom = 3.0
+text = "thrust"
+
 [node name="crash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2w6wn")
 volume_db = -25.0
 
 [node name="victory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aymip")
+
+[node name="lunar_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5x5x1")
 
 [connection signal="pressed" from="CanvasLayer/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="CanvasLayer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

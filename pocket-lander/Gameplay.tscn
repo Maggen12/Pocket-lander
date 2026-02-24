@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://buh3qski3cp8m"]
+[gd_scene load_steps=7 format=3 uid="uid://buh3qski3cp8m"]
 
 [ext_resource type="PackedScene" uid="uid://bntrhhn6n68fu" path="res://rocketship.tscn" id="1_5r2ls"]
 [ext_resource type="Texture2D" uid="uid://bu6qd4j6dc2c3" path="res://spacebackdrop.png" id="1_tps0b"]
 [ext_resource type="Texture2D" uid="uid://d8jf8gq6ti80" path="res://earthtrum.png" id="2_ofk8k"]
 [ext_resource type="Texture2D" uid="uid://ctphkeyli0sla" path="res://moon-surface-seamless-texture-background-closeup-moon-surface-texture-188679621.webp" id="2_pkqox"]
 [ext_resource type="Texture2D" uid="uid://ibejeo7vkvv3" path="res://moonsurface.png" id="4_cpuac"]
-[ext_resource type="Texture2D" uid="uid://6n1cwuo45vp1" path="res://flagstang.png" id="6_bkflf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03miq"]
 

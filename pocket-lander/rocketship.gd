@@ -13,6 +13,9 @@ func _ready():
 	$CanvasLayer/Lose.hide()
 	$CanvasLayer/PlayAgain.hide()
 	$CanvasLayer/ReturnToMenu.hide()
+	lunar_music.play()
+	velocity.x = randf_range(-300,300)
+	
 
 func _physics_process(delta: float) -> void:
 	
