@@ -1,3 +1,4 @@
 extends Node
 
-var fuel = 100
+var fuel = 500
+var altitude = 0

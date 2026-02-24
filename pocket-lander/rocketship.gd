@@ -1,40 +1,43 @@
 extends CharacterBody2D
 
-const GRAVITY = 2.0
+const GRAVITY = 10.0
 var thrust = 0
-
-
+@onready var crash = $crash
+@onready var victory = $victory
+@onready var floor_node = $"../floor/floor_collision"
 
 func _physics_process(delta: float) -> void:
 	
-	velocity.y += GRAVITY
-	velocity += Vector2.UP.rotated(rotation) * thrust
+	velocity.y += GRAVITY * delta 
+	velocity += Vector2.UP.rotated(rotation) * thrust * delta
 	
 	move_and_slide()
 	
 func _process(delta):
+	#altitude calculation
+	GlobalVariables.altitude = floor_node.global_position.y - global_position.y
 	
-	if Input.is_action_just_pressed("more_thrust") and thrust < 10:
+	#controls
+	if Input.is_action_just_pressed("more_thrust") and thrust < 20:
 		if GlobalVariables.fuel > 0:
-			thrust += 2
+			thrust += 4
 	elif Input.is_action_just_pressed("less_thrust") and thrust >=2:
-		thrust -= 2
+		thrust -= 4
 	if Input.is_action_just_pressed("tilt_left"):
 		rotation_degrees += 5
 	elif Input.is_action_just_pressed("tilt_right"):
 		rotation_degrees -= 5
 	
 	#fuel system
-	if thrust == 2:
-		GlobalVariables.fuel -= 4 * delta
-	elif thrust == 4:
-		GlobalVariables.fuel -= 6 * delta
-	elif thrust == 6:
-		GlobalVariables.fuel -= 8 * delta
-	elif thrust == 8:
-		GlobalVariables.fuel -= 10 * delta
-	elif thrust == 10:
-		GlobalVariables.fuel -= 12 * delta
-	if GlobalVariables.fuel <= 0:
-		thrust = 0
-		GlobalVariables.fuel = 0
+	if thrust > 0:
+		GlobalVariables.fuel -= thrust * delta
+		if GlobalVariables.fuel <= 0:
+			GlobalVariables.fuel = 0
+			thrust = 0
+
+	
+func _on_floor_body_entered(body: Node2D) -> void:
+	if velocity.length() >= 50:
+		crash.play()
+	elif velocity.length() < 50:
+		victory.play()
