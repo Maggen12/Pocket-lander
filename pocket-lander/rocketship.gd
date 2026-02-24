@@ -1,23 +1,28 @@
 extends CharacterBody2D
 
-const GRAVITY = 2.0
+const GRAVITY = 10.0
 var thrust = 0
-
-
+@onready var crash = $crash
+@onready var victory = $victory
+@onready var floor_node = $"../floor/floor_collision"
 
 func _physics_process(delta: float) -> void:
 	
-	velocity.y += GRAVITY
-	velocity += Vector2.UP.rotated(rotation) * thrust
+	velocity.y += GRAVITY * delta 
+	velocity += Vector2.UP.rotated(rotation) * thrust * delta
 	
 	move_and_slide()
 	
 func _process(delta):
-	if Input.is_action_just_pressed("more_thrust") and thrust < 10:
+	#altitude calculation
+	GlobalVariables.altitude = floor_node.global_position.y - global_position.y
+	
+	#controls
+	if Input.is_action_just_pressed("more_thrust") and thrust < 20:
 		if GlobalVariables.fuel > 0:
-			thrust += 2
+			thrust += 4
 	elif Input.is_action_just_pressed("less_thrust") and thrust >=2:
-		thrust -= 2
+		thrust -= 4
 	if Input.is_action_just_pressed("tilt_left"):
 		rotation_degrees += 5
 	elif Input.is_action_just_pressed("tilt_right"):
@@ -28,3 +33,11 @@ func _process(delta):
 		GlobalVariables.fuel -= thrust * delta
 		if GlobalVariables.fuel <= 0:
 			GlobalVariables.fuel = 0
+			thrust = 0
+
+	
+func _on_floor_body_entered(body: Node2D) -> void:
+	if velocity.length() >= 50:
+		crash.play()
+	elif velocity.length() < 50:
+		victory.play()

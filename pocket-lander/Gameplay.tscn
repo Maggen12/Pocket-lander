@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmj7s6wjb5gca"]
+[gd_scene load_steps=7 format=3 uid="uid://buh3qski3cp8m"]
 
 [ext_resource type="PackedScene" uid="uid://bntrhhn6n68fu" path="res://rocketship.tscn" id="1_5r2ls"]
 [ext_resource type="Texture2D" uid="uid://bu6qd4j6dc2c3" path="res://spacebackdrop.png" id="1_tps0b"]
@@ -32,26 +32,26 @@ top_level = true
 light_mask = 32
 visibility_layer = 4
 
-[node name="Camera2D2" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-2, 2)
+[node name="floor" type="Area2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="Parallax2D2" type="Parallax2D" parent="Area2D"]
+[node name="Parallax2D2" type="Parallax2D" parent="floor"]
 repeat_size = Vector2(460, 0)
 repeat_times = 5
 
-[node name="Sprite2D2" type="Sprite2D" parent="Area2D/Parallax2D2"]
+[node name="Sprite2D2" type="Sprite2D" parent="floor/Parallax2D2"]
 position = Vector2(296, 4112)
 texture = ExtResource("4_cpuac")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/Parallax2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="floor/Parallax2D2"]
 visibility_layer = 8
 position = Vector2(-152, 4200)
 scale = Vector2(0.58, 0.276)
 texture = ExtResource("2_pkqox")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="floor_collision" type="CollisionShape2D" parent="floor"]
 position = Vector2(0, 4184)
 scale = Vector2(7500, 5)
 shape = SubResource("RectangleShape2D_03miq")
+
+[connection signal="area_entered" from="floor" to="CharacterBody2D" method="_on_floor_area_entered"]
+[connection signal="body_entered" from="floor" to="CharacterBody2D" method="_on_floor_body_entered"]

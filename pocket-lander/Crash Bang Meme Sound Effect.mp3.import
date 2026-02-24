@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8oco3jlrytdi"
+path="res://.godot/imported/Crash Bang Meme Sound Effect.mp3-9fbbc7e9b7fc50c47466aeef53bf232e.mp3str"
+
+[deps]
+
+source_file="res://Crash Bang Meme Sound Effect.mp3"
+dest_files=["res://.godot/imported/Crash Bang Meme Sound Effect.mp3-9fbbc7e9b7fc50c47466aeef53bf232e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
