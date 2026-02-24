@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs5fi07d87sf4"]
+[gd_scene load_steps=6 format=3 uid="uid://cs5fi07d87sf4"]
 
 [ext_resource type="Texture2D" uid="uid://b3yxdx780axic" path="res://wallpapermainmenu.webp" id="1_f0vur"]
 [ext_resource type="Script" path="res://main_screen.gd" id="1_v1ohk"]
 [ext_resource type="Texture2D" uid="uid://dstt7ulvny8t7" path="res://desktoplander.png" id="3_7sn0k"]
+[ext_resource type="AudioStream" uid="uid://oms2psv6eyto" path="res://Lunar Landing.mp3" id="4_67qkt"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_bppqc"]
 
@@ -48,6 +49,9 @@ icon = SubResource("ViewportTexture_bppqc")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(576, 88)
 texture = ExtResource("3_7sn0k")
+
+[node name="start_screen music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_67qkt")
 
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
 [connection signal="pressed" from="Info" to="." method="_on_info_pressed"]

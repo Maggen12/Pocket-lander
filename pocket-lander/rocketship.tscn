@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bntrhhn6n68fu"]
+[gd_scene load_steps=10 format=3 uid="uid://bntrhhn6n68fu"]
 
 [ext_resource type="Texture2D" uid="uid://dw62xn8gxtybq" path="res://rocket-ship-png-7.png" id="1_1ewwx"]
 [ext_resource type="Script" path="res://rocketship.gd" id="1_h534v"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b8oco3jlrytdi" path="res://Crash Bang Meme Sound Effect.mp3" id="5_2w6wn"]
 [ext_resource type="Script" path="res://altitude.gd" id="5_io11a"]
 [ext_resource type="AudioStream" uid="uid://c815md7vxnepb" path="res://Victory Sound Effect.mp3" id="6_aymip"]
+[ext_resource type="AudioStream" uid="uid://bqn7ws3jqorih" path="res://Motherload OST- Heavy Industry HQ.mp3" id="8_5x5x1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlif8"]
 size = Vector2(102, 177)
@@ -53,9 +54,27 @@ offset_right = -0.32
 offset_bottom = -0.0800018
 script = ExtResource("5_io11a")
 
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 75.0
+offset_right = 183.0
+offset_bottom = 154.0
+max_value = 20.0
+
+[node name="thrust" type="Label" parent="CanvasLayer/HSlider"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 58.0
+offset_bottom = 34.0
+text = "thrust"
+
 [node name="crash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2w6wn")
 volume_db = -25.0
 
 [node name="victory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aymip")
+
+[node name="lunar_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5x5x1")

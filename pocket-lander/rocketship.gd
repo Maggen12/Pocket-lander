@@ -5,7 +5,15 @@ var thrust = 0
 @onready var crash = $crash
 @onready var victory = $victory
 @onready var floor_node = $"../floor/floor_collision"
+@onready var lunar_music = $lunar_music
+@onready var slider = $CanvasLayer/HSlider
 
+
+func _ready():
+	velocity.x = randf_range(-300, 300)
+	lunar_music.play()
+	
+	
 func _physics_process(delta: float) -> void:
 	
 	velocity.y += GRAVITY * delta 
@@ -14,19 +22,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _process(delta):
+	#thrust
+	slider.value = thrust
+	
 	#altitude calculation
 	GlobalVariables.altitude = floor_node.global_position.y - global_position.y
 	
 	#controls
-	if Input.is_action_just_pressed("more_thrust") and thrust < 20:
+	if Input.is_action_pressed("more_thrust") and thrust < 20:
 		if GlobalVariables.fuel > 0:
-			thrust += 4
-	elif Input.is_action_just_pressed("less_thrust") and thrust >=2:
-		thrust -= 4
-	if Input.is_action_just_pressed("tilt_left"):
-		rotation_degrees += 5
-	elif Input.is_action_just_pressed("tilt_right"):
-		rotation_degrees -= 5
+			thrust += 0.3
+	elif Input.is_action_pressed("less_thrust") and thrust >=2:
+		thrust -= 0.3
+	if Input.is_action_pressed("tilt_left"):
+		rotation_degrees += 1
+	elif Input.is_action_pressed("tilt_right"):
+		rotation_degrees -= 1
 	
 	#fuel system
 	if thrust > 0:

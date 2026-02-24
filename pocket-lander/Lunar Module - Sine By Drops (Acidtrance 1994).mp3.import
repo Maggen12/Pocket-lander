@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k32yun3qkywq"
+path="res://.godot/imported/Lunar Module - Sine By Drops (Acidtrance 1994).mp3-d8e20b53ea87a131b8a6d6c3fed15d05.mp3str"
+
+[deps]
+
+source_file="res://Lunar Module - Sine By Drops (Acidtrance 1994).mp3"
+dest_files=["res://.godot/imported/Lunar Module - Sine By Drops (Acidtrance 1994).mp3-d8e20b53ea87a131b8a6d6c3fed15d05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
