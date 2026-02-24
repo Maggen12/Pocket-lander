@@ -8,12 +8,12 @@ var thrust = 0
 @onready var lunar_music = $lunar_music
 @onready var slider = $CanvasLayer/HSlider
 
-
 func _ready():
-	velocity.x = randf_range(-300, 300)
-	lunar_music.play()
-	
-	
+	$CanvasLayer/Victory.hide()
+	$CanvasLayer/Lose.hide()
+	$CanvasLayer/PlayAgain.hide()
+	$CanvasLayer/ReturnToMenu.hide()
+
 func _physics_process(delta: float) -> void:
 	
 	velocity.y += GRAVITY * delta 
@@ -50,5 +50,21 @@ func _process(delta):
 func _on_floor_body_entered(body: Node2D) -> void:
 	if velocity.length() >= 50:
 		crash.play()
+		$CanvasLayer/Lose.show()
+		$CanvasLayer/PlayAgain.show()
+		$CanvasLayer/ReturnToMenu.show()
 	elif velocity.length() < 50:
 		victory.play()
+		$CanvasLayer/Victory.show()
+		$CanvasLayer/PlayAgain.show()
+		$CanvasLayer/ReturnToMenu.show()
+
+
+func _on_play_again_pressed():
+	GlobalVariables.fuel = 500
+	get_tree().change_scene_to_file("res://Gameplay.tscn")
+	
+
+func _on_return_to_menu_pressed():
+	GlobalVariables.fuel = 500
+	get_tree().change_scene_to_file("res://MainScreen.tscn")

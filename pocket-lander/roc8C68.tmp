@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bntrhhn6n68fu"]
+[gd_scene load_steps=9 format=3 uid="uid://bntrhhn6n68fu"]
 
 [ext_resource type="Texture2D" uid="uid://dw62xn8gxtybq" path="res://rocket-ship-png-7.png" id="1_1ewwx"]
 [ext_resource type="Script" path="res://rocketship.gd" id="1_h534v"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://b8oco3jlrytdi" path="res://Crash Bang Meme Sound Effect.mp3" id="5_2w6wn"]
 [ext_resource type="Script" path="res://altitude.gd" id="5_io11a"]
 [ext_resource type="AudioStream" uid="uid://c815md7vxnepb" path="res://Victory Sound Effect.mp3" id="6_aymip"]
-[ext_resource type="AudioStream" uid="uid://bqn7ws3jqorih" path="res://Motherload OST- Heavy Industry HQ.mp3" id="8_5x5x1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlif8"]
 size = Vector2(102, 177)
@@ -54,43 +53,6 @@ offset_right = -0.32
 offset_bottom = -0.0800018
 script = ExtResource("5_io11a")
 
-[node name="Victory" type="Label" parent="CanvasLayer"]
-modulate = Color(0, 1, 0, 1)
-offset_left = 264.0
-offset_top = 133.0
-offset_right = 473.0
-offset_bottom = 156.0
-scale = Vector2(3, 3)
-text = "You've landed successfully!"
-metadata/_edit_use_anchors_ = true
-
-[node name="Lose" type="Label" parent="CanvasLayer"]
-modulate = Color(1, 0.027451, 0, 1)
-offset_left = 208.0
-offset_top = 133.0
-offset_right = 463.0
-offset_bottom = 156.0
-scale = Vector2(3, 3)
-text = "You have crashed the spacecraft!"
-metadata/_edit_use_anchors_ = true
-
-[node name="PlayAgain" type="Button" parent="CanvasLayer"]
-modulate = Color(0, 1, 0, 1)
-offset_left = 504.0
-offset_top = 296.0
-offset_right = 656.0
-offset_bottom = 368.0
-text = "Play Again"
-metadata/_edit_use_anchors_ = true
-
-[node name="ReturnToMenu" type="Button" parent="CanvasLayer"]
-offset_left = 504.0
-offset_top = 376.0
-offset_right = 656.0
-offset_bottom = 448.0
-text = "Return to menu"
-metadata/_edit_use_anchors_ = true
-
 [node name="crash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2w6wn")
 volume_db = -25.0
@@ -98,5 +60,32 @@ volume_db = -25.0
 [node name="victory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_aymip")
 
-[connection signal="pressed" from="CanvasLayer/PlayAgain" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="CanvasLayer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[node name="Victory" type="Label" parent="."]
+offset_left = -317.0
+offset_top = -175.0
+offset_right = -108.0
+offset_bottom = -152.0
+scale = Vector2(3, 3)
+text = "You've landed successfully!"
+
+[node name="Lose" type="Label" parent="."]
+offset_left = -373.0
+offset_top = -175.0
+offset_right = -122.0
+offset_bottom = -152.0
+scale = Vector2(3, 3)
+text = "You have crashed the spacecraft!"
+
+[node name="PlayAgain" type="Button" parent="."]
+offset_left = -45.0
+offset_top = 9.0
+offset_right = 43.0
+offset_bottom = 40.0
+text = "Play Again"
+
+[node name="ReturnToMenu" type="Button" parent="."]
+offset_left = -69.0
+offset_top = 73.0
+offset_right = 62.0
+offset_bottom = 104.0
+text = "Return to menu"
